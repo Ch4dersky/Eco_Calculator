@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Emisji CO2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Kalkulator Emisji CO2</h1>
+    <form method="POST">
+        <label for="km">Ilość kilometrów (km):</label>
+        <input type="text" id="km" name="km" required><br><br>
+        
+        <label for="energy">Zużycie energii (kWh):</label>
+        <input type="text" id="energy" name="energy" required><br><br>
+        
+        <button type="submit">Oblicz emisję CO2</button>
+    </form>
+
+    {% if result is not none %}
+        <h2>Wynik:</h2>
+        <p>Całkowita emisja CO2: {{ result }} g</p>
+    {% endif %}
+</body>
+</html>
